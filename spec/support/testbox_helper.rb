@@ -12,7 +12,6 @@ class TestboxHelper
 
   def db_reset
     resp = Faraday.post(@url, service: 'bookstore_api', command: 'rails db:reset')
-    puts resp.body
     resp.body
   end
 end
