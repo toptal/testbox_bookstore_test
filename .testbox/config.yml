@@ -1,3 +1,8 @@
 docker:
-  build: true
+  build:
+    args:
+      BUNDLE_GITHUB__COM: <%= ENV['BUNDLE_GITHUB__COM'] %>
   workdir: /test
+scripts:
+  ls: ls
+  parameterized: .testbox/parameterized.sh
