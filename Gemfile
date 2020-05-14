@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rspec'
+gem 'activesupport'
 gem 'pry'
 
-# gem 'testbox', git: 'https://github.com/toptal/testbox'
-gem 'testbox', path: '../../..'
+# /testbox is where the current testbox is mounted in the bookstore_test container
+gem 'testbox', path: File.exists?('/testbox') ? '/testbox' : '../../..'

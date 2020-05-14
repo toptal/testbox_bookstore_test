@@ -21,19 +21,13 @@ RSpec.describe 'Bookstore API' do
     expect(client.books.count).to eq 1
   end
 
-  describe 'Feature flags' do
-    describe 'Book title' do
-      it 'Should be upper case' do
-        skip unless TestboxHelper.new.feature_flags['upcase_titles']
+  describe 'Book title' do
+    it 'Should be upper case', skip: !feature_flags['bookstore_api']['upcase_titles'] do
+      expect(AppClient.new.books.first['title']).to eq('MORFINA')
+    end
 
-        expect(AppClient.new.books.first['title']).to eq('MORFINA')
-      end
-
-      it 'Should be regular case', only: false do
-        skip if TestboxHelper.new.feature_flags['upcase_titles']
-
-        expect(AppClient.new.books.first['title']).to eq('Morfina')
-      end
+    it 'Should be regular case', skip: feature_flags['bookstore_api']['upcase_titles'] do
+      expect(AppClient.new.books.first['title']).to eq('Morfina')
     end
   end
 end
