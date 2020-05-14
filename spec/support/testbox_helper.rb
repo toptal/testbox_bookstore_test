@@ -1,17 +1,22 @@
-require 'faraday'
+require 'json'
+require_relative "#{TESTBOX_PATH}/lib/testbox/web/client"
 
 class TestboxHelper
-  def initialize(url = 'http://testbox:4567/exec')
-    @url = url
+  attr_reader :client
+
+  def initialize(url = 'http://testbox:4567')
+    @client = Testbox::Web::Client.new(url)
   end
 
   def db_migrate
-    resp = Faraday.post(@url, service: 'bookstore_api', command: 'rails db:migrate')
-    resp.body
+    client.execute(components: ['bookstore_api'], command: 'rails db:migrate')
   end
 
   def db_reset
-    resp = Faraday.post(@url, service: 'bookstore_api', command: 'rails db:reset')
-    resp.body
+    client.execute(components: ['bookstore_api'], command: 'rails db:reset')
+  end
+
+  def feature_flags
+    JSON.parse(client.execute(components: ['bookstore_api'], action: 'feature_flags')['stdout'])
   end
 end

@@ -1,8 +1,7 @@
-require_relative './support/testbox_helper'
 require_relative './support/app_client'
+require_relative './support/testbox_helper'
 
 RSpec.describe 'Bookstore API' do
-
   before(:all) { TestboxHelper.new.db_migrate }
   before(:each) { TestboxHelper.new.db_reset }
 
@@ -20,5 +19,21 @@ RSpec.describe 'Bookstore API' do
     client = AppClient.new
     client.delete_book(1)
     expect(client.books.count).to eq 1
+  end
+
+  describe 'Feature flags' do
+    describe 'Book title' do
+      it 'Should be upper case' do
+        skip unless TestboxHelper.new.feature_flags['upcase_titles']
+
+        expect(AppClient.new.books.first['title']).to eq('MORFINA')
+      end
+
+      it 'Should be regular case', only: false do
+        skip if TestboxHelper.new.feature_flags['upcase_titles']
+
+        expect(AppClient.new.books.first['title']).to eq('Morfina')
+      end
+    end
   end
 end

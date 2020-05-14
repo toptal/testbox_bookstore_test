@@ -1,3 +1,7 @@
+require 'pry'
+
+TESTBOX_PATH=File.expand_path("#{File.dirname(__FILE__)}/../../../..")
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
