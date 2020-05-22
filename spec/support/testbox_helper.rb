@@ -1,10 +1,10 @@
 require 'json'
-require_relative "#{TESTBOX_PATH}/lib/testbox/web/client"
+require 'testbox/web/client'
 
 class TestboxHelper
   attr_reader :client
 
-  def initialize(url = 'http://testbox:4567')
+  def initialize(url = nil)
     @client = Testbox::Web::Client.new(url)
   end
 
