@@ -1,10 +1,11 @@
-FROM ruby:2.5.1
+# syntax = docker/dockerfile:experimental
 
-ARG BUNDLE_GITHUB__COM
-ENV BUNDLE_GITHUB__COM=$BUNDLE_GITHUB__COM
+FROM ruby:2.5.1
 
 COPY . /test
 WORKDIR /test
-RUN bundle install
+
+RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+RUN  --mount=type=ssh bundle install
 
 CMD [ "tail", "-f", "/dev/null" ]

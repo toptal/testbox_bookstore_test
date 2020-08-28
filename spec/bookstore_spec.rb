@@ -22,11 +22,11 @@ RSpec.describe 'Bookstore API' do
   end
 
   describe 'Book title' do
-    it 'Should be upper case', skip: !feature_flags['bookstore_api']['upcase_titles'] do
+    it 'Should be upper case', skip: !feature_flags['bookstore-api']['upcase_titles'] do
       expect(AppClient.new.books.first['title']).to eq('MORFINA')
     end
 
-    it 'Should be regular case', skip: feature_flags['bookstore_api']['upcase_titles'] do
+    it 'Should be regular case', skip: feature_flags['bookstore-api']['upcase_titles'] do
       expect(AppClient.new.books.first['title']).to eq('Morfina')
     end
   end
