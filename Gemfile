@@ -5,4 +5,4 @@ gem 'activesupport'
 gem 'pry'
 
 # /testbox is where the current testbox is mounted in the bookstore_test container
-gem 'testbox', path: File.exists?('/testbox') ? '/testbox' : '../../..'
+gem 'testbox', git: 'git@github.com:toptal/testbox.git'

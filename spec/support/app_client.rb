@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 
 class AppClient
-  def initialize(url = 'http://bookstore_api:3000')
+  def initialize(url = 'http://bookstore-api:3000')
     @url = url
   end
 
