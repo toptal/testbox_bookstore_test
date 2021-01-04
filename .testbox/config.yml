@@ -2,5 +2,6 @@ docker:
   build:
   workdir: /test
 scripts:
+  start: tail -f /dev/null
   ls: ls
   parameterized: .testbox/parameterized.sh
