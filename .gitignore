@@ -1,2 +1,3 @@
 /.testbox/Dockerfile
+/.testbox/entrypoint.sh
 
