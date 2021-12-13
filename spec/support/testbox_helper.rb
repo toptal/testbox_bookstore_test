@@ -9,14 +9,14 @@ class TestboxHelper
   end
 
   def db_migrate
-    client.execute(components: ['bookstore-api'], command: 'rails db:migrate')
+    client.execute('exec bookstore-api rails db:migrate')
   end
 
   def db_reset
-    client.execute(components: ['bookstore-api'], command: 'rails db:reset')
+    client.execute('exec bookstore-api rails db:reset')
   end
 
   def feature_flags
-    JSON.parse(client.execute(components: ['bookstore-api'], action: 'feature_flags')['stdout'])
+    JSON.parse(client.execute('feature_flags bookstore-api')['stdout'])
   end
 end
