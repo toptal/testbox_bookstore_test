@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:toptal/testbox.git
-  revision: 45e255be807c4fe6a9e696cde9dd06e182b27c37
+  revision: 0d016ef694cd5e1661253dd77a9b92c86fb69f4b
   specs:
     testbox (0.0.1)
       childprocess
