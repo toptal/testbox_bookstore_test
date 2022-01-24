@@ -1,3 +1,4 @@
+type: job
 docker:
   build:
   workdir: /test
