@@ -1,4 +1,3 @@
-type: job
 docker:
   build:
   workdir: /test
@@ -6,3 +5,9 @@ scripts:
   start: tail -f /dev/null
   ls: ls
   parameterized: .testbox/parameterized.sh
+patches:
+  - name: kubernetes_type_job
+    operations:
+      - op: replace
+        path: type
+        value: job
