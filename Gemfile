@@ -4,5 +4,5 @@ gem 'rspec'
 gem 'activesupport'
 gem 'pry'
 
-# /testbox is where the current testbox is mounted in the bookstore_test container
+gem 'monitoring-sdk-ruby', git: 'git@github.com:toptal/monitoring-sdk-ruby.git'
 gem 'testbox', git: 'git@github.com:toptal/testbox.git'
