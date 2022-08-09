@@ -10,4 +10,4 @@ RUN gem install bundler:2.3.10 --no-document
 RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 RUN --mount=type=ssh bundle install
 
-CMD [ "bundle exec", "rspec" ]
+CMD bundle exec rspec
