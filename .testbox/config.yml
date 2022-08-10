@@ -2,7 +2,7 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: tail -f /dev/null
+  start: bundle exec rspec
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
