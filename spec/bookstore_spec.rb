@@ -6,7 +6,7 @@ RSpec.describe 'Bookstore API' do
   before(:each) { TestboxHelper.new.db_reset }
 
   it 'has two books at the start' do
-    expect(AppClient.new.books.count).to eq 1
+    expect(AppClient.new.books.count).to eq 2
   end
 
   it 'adds a book' do
