@@ -2,7 +2,7 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: bundle exec rspec
+  start: sleep 5; bundle exec rspec
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
