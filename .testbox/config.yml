@@ -17,5 +17,5 @@ patches:
   - name: bookstore-tests-tail-dev-null
       operations:
         - op: add
-          path: .spec.containers[?(@.name=="bookstore-test")].command
+          path: .spec.template.spec.containers[?(@.name=="bookstore-test")].command
           value: tail -f /dev/null
