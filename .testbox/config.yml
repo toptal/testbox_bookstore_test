@@ -2,7 +2,6 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: tail -f /dev/null
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
@@ -11,6 +10,11 @@ patches:
       - op: replace
         path: type
         value: job
-      - op: replace
+      - op: add
         path: scripts.start
         value: bundle exec rspec
+  - name: bookstore-tests-tailf
+      operations:
+        - op: add
+          path: scripts.start
+          value: tail -f /dev/null
