@@ -2,12 +2,22 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: <%= ENV.fetch('BOOKSTORE_TEST_COMMAND') %>
+  start: bundle exec rspec
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: bookstore-api-tests
+  - name: bookstore-tests-job
     operations:
       - op: replace
         path: type
         value: job
+  - name: bookstore-tests-rspec
+      operations:
+        - op: add
+          path: .spec.containers[?(@.name=="bookstore-test")].command
+          value: bundle exec rspec
+  - name: bookstore-tests-tail-dev-null
+      operations:
+        - op: add
+          path: .spec.containers[?(@.name=="bookstore-test")].command
+          value: tail -f /dev/null
