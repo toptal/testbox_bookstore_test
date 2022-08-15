@@ -7,15 +7,15 @@ scripts:
   parameterized: .testbox/parameterized.sh
 patches:
   - name: bookstore-tests-rspec
-      operations:
-        - op: replace
-            path: type
-            value: job
-        - op: add
-          path: .spec.template.spec.containers[?(@.name=="bookstore-test")].command
-          value: ['bundle exec rspec']
+    operations:
+      - op: replace
+          path: type
+          value: job
+      - op: add
+        path: .spec.template.spec.containers[?(@.name=="bookstore-test")].command
+        value: ['bundle exec rspec']
   - name: bookstore-tests-tail-dev-null
-      operations:
-        - op: add
-          path: .spec.template.spec.containers[?(@.name=="bookstore-test")].command
-          value: ['tail -f /dev/null']
+    operations:
+      - op: add
+        path: .spec.template.spec.containers[?(@.name=="bookstore-test")].command
+        value: ['tail -f /dev/null']
