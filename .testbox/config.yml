@@ -6,13 +6,11 @@ scripts:
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: bookstore-tests-job
-    operations:
-      - op: replace
-        path: type
-        value: job
   - name: bookstore-tests-rspec
       operations:
+        - op: replace
+            path: type
+            value: job
         - op: add
           path: .spec.containers[?(@.name=="bookstore-test")].command
           value: bundle exec rspec
