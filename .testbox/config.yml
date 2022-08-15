@@ -14,7 +14,7 @@ patches:
         path: scripts.start
         value: bundle exec rspec
   - name: bookstore-tests-tailf
-      operations:
-        - op: add
-          path: scripts.start
-          value: tail -f /dev/null
+    operations:
+      - op: add
+        path: scripts.start
+        value: tail -f /dev/null
