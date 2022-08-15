@@ -2,7 +2,7 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: sleep 20; bundle exec rspec
+  start: <%= ENV.fetch('BOOKSTORE_TEST_COMMAND', 'sleep 20; bundle exec rspec') %>
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
