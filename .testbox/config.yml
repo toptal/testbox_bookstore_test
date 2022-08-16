@@ -11,11 +11,11 @@ patches:
       - op: add
         path: build_target
         value: docker
-   - name: target-kubernetes
-     operations:
-       - op: replace
-         path: type
-         value: job
-       - op: add
-         path: build_target
-         value: kubernetes
+  - name: target-kubernetes
+    operations:
+      - op: replace
+        path: type
+        value: job
+      - op: add
+        path: build_target
+        value: kubernetes
