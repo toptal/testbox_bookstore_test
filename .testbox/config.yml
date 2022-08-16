@@ -1,6 +1,6 @@
-build_target: kubernetes
 docker:
   build:
+    target: kubernetes
   workdir: /test
 scripts:
   start: ./start.sh
