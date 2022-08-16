@@ -9,7 +9,7 @@ scripts:
 patches:
   - name: target-docker
     operations:
-      - op: add
+      - op: replace
         path: build_target
         value: docker
   - name: target-kubernetes
@@ -17,6 +17,6 @@ patches:
       - op: replace
         path: type
         value: job
-      - op: add
+      - op: replace
         path: build_target
         value: kubernetes
