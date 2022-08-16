@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:experimental
 
-FROM ruby:2.6.5
+FROM ruby:2.6.5 as base
 
 COPY . /test
 WORKDIR /test
