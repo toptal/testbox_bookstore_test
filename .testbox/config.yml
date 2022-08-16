@@ -1,4 +1,4 @@
-build_target: docker
+build_target: kubernetes
 docker:
   build:
   workdir: /test
