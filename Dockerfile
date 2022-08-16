@@ -13,12 +13,12 @@ RUN --mount=type=ssh bundle install
 RUN touch start.sh && chmod +x start.sh
 CMD ./start.sh
 
-FROM base AS for_kubernetes
+FROM base AS kubernetes
 
 RUN echo 'bundle exec rspec' >  start.sh
 RUN chmod +x start.sh
 
-FROM base AS for_docker
+FROM base AS docker
 
 RUN echo 'tail -f /dev/null' >  start.sh
 RUN chmod +x start.sh

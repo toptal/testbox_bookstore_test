@@ -6,16 +6,8 @@ scripts:
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: bookstore-tests-rspec
+  - name: bookstore-tests-as-job
     operations:
       - op: replace
         path: type
         value: job
-      - op: replace
-        path: scripts.start
-        value: bundle exec rspec
-  - name: bookstore-tests-tailf
-    operations:
-      - op: replace
-        path: scripts.start
-        value: tail -f /dev/null
