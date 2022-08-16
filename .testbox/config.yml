@@ -6,8 +6,16 @@ scripts:
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: bookstore-tests-as-job
+  - name: target-docker
     operations:
-      - op: replace
-        path: type
-        value: job
+      - op: add
+        path: build_target
+        value: docker
+   - name: target-kubernetes
+     operations:
+       - op: replace
+         path: type
+         value: job
+       - op: add
+         path: build_target
+         value: kubernetes

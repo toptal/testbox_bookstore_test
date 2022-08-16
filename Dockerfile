@@ -16,9 +16,7 @@ CMD ./start.sh
 FROM base AS kubernetes
 
 RUN echo 'bundle exec rspec' >  start.sh
-RUN chmod +x start.sh
 
 FROM base AS docker
 
 RUN echo 'tail -f /dev/null' >  start.sh
-RUN chmod +x start.sh
