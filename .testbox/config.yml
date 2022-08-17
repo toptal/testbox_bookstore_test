@@ -1,22 +1,13 @@
 docker:
   build:
-    target: kubernetes
   workdir: /test
 scripts:
   start: ./start.sh
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: target-docker
-    operations:
-      - op: replace
-        path: build_target
-        value: docker
-  - name: target-kubernetes
+  - name: bookstore-tests-as-job
     operations:
       - op: replace
         path: type
         value: job
-      - op: replace
-        path: build_target
-        value: kubernetes
