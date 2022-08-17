@@ -2,11 +2,11 @@ docker:
   build:
   workdir: /test
 scripts:
-  start: tail -f /dev/null
+  start: ./start.sh
   ls: ls
   parameterized: .testbox/parameterized.sh
 patches:
-  - name: bookstore-api-tests
+  - name: bookstore-tests-as-job
     operations:
       - op: replace
         path: type
