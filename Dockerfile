@@ -1,11 +1,11 @@
 # syntax = docker/dockerfile:experimental
 
-FROM ruby:2.6.5 as base
+FROM ruby:3.0.4 as base
 
 COPY . /test
 WORKDIR /test
 
-RUN gem install bundler:2.3.10 --no-document
+RUN gem install bundler:2.3.21 --no-document
 
 RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 RUN --mount=type=ssh bundle install
