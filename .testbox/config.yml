@@ -5,6 +5,7 @@ scripts:
   start: ./start.sh
   ls: ls
   parameterized: .testbox/parameterized.sh
+faketime: true
 patches:
   - name: bookstore-tests-as-job
     operations:
